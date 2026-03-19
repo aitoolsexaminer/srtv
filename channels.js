@@ -27,8 +27,8 @@ const channels = [
 
 /* -------- LEBANESE -------- */
 //{id: 16, name: "LBCI Lebanon", group: "lebanese", type: "youtube", src: "hG9Z6Qp7wG4", logo: "./networkslogos/lebanese/lbci.png" },
-{id: 17, name: "MTV Lebanon", group: "lebanese", type: "youtube", src: "fAH_4RsED4U", logo: "./networkslogos/lebanese/mtvlebanon.png" },
-//{id: 18, name: "Al Jadeed", group: "lebanese", type: "youtube", src: "a9I4O3jEhr8", logo: "./networkslogos/lebanese/aljadeed.png" },
+{id: 17, name: "MTV Lebanon", group: "lebanese", type: "youtube", channelId: "UC9_XmAwE5szLHF76FjMylaw", logo: "./networkslogos/lebanese/mtvlebanon.png" },
+{id: 18, name: "Al Jadeed", group: "lebanese", type: "youtube", channelId: "UC4JCsTLFcHGk10qpiNMh0Ww", logo: "./networkslogos/lebanese/aljadeed.png" },
 //{id: 19, name: "OTV Lebanon", group: "lebanese", type: "blob", src: "blob:https://otv.com.lb/387d328b-194e-4f67-94c7-cb57fada8546", logo: "./networkslogos/lebanese/otv.svg" },
 //{id: 20, name: "Tele Liban", group: "lebanese", type: "blob", src: "blob:https://www.teleliban.com.lb/3c431924-ae39-4180-b1b0-4fa78d518848", logo: "./networkslogos/lebanese/teleliban.png" },
 //{id: 21, name: "NBN Lebanon", group: "lebanese", type: "blob", src: "blob:https://player.livepush.io/774d3a9a-ace0-4f6f-b142-986953295d70", logo: "./networkslogos/lebanese/nbn.png" },

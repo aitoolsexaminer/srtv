@@ -37,12 +37,20 @@ function createPlayer(channel) {
   // ======================
   // YouTube
   // ======================
-  if (channel.type === "youtube") {
+   if (channel.type === "youtube") {
     player = document.createElement("iframe");
-    player.src = `https://www.youtube.com/embed/${channel.src}?autoplay=1&mute=1&playsinline=1&enablejsapi=1`;
-    player.allow =
-      "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-  }
+
+    // ✅ For normal video IDs
+    if (channel.videoId) {
+        player.src = `https://www.youtube.com/embed/${channel.videoId}?autoplay=1&mute=1&playsinline=1&enablejsapi=1`;
+    } 
+    // ✅ For live channels (must have channelId)
+    else if (channel.channelId) {
+        player.src = `https://www.youtube.com/embed/live_stream?channel=${channel.channelId}&autoplay=1&mute=1&playsinline=1`;
+    }
+
+    player.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+}
 
   // ======================
   // HLS Stream
@@ -56,10 +64,17 @@ function createPlayer(channel) {
   // ======================
   // Blob / MP4 / WebM
   // ======================
-  else if (channel.type === "blob" || /\.(mp4|webm)$/i.test(channel.src)) {
+   else if (channel.type === "blob" || /\.(mp4|webm)$/i.test(channel.src)) {
     player = document.createElement("video");
     setupVideo(player);
     player.src = channel.src;
+
+    // ✅ Only attach error fallback for non-blob sources
+    if (!channel.src.startsWith("blob:")) {
+      player.addEventListener("error", () => {
+        showFallback(player, channel);
+      });
+    }
   }
 
   // ======================
@@ -75,12 +90,15 @@ function createPlayer(channel) {
   // ======================
   // Common styles + error handling
   // ======================
-  player.style.width = "100%";
+   player.style.width = "100%";
   player.style.height = "100%";
 
-  player.addEventListener("error", () => {
-    showFallback(player, channel);
-  });
+  // ✅ For blob, skip fallback. For others, attach fallback if not already attached
+  if (!(channel.type === "blob" && channel.src.startsWith("blob:"))) {
+    player.addEventListener("error", () => {
+      showFallback(player, channel);
+    });
+  }
 
   return player;
 }
