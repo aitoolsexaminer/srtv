@@ -64,18 +64,19 @@ function createPlayer(channel) {
   // ======================
   // Blob / MP4 / WebM
   // ======================
-   else if (channel.type === "blob" || /\.(mp4|webm)$/i.test(channel.src)) {
+   if (channel.type === "blob") {
     player = document.createElement("video");
     setupVideo(player);
-    player.src = channel.src;
 
-    // ✅ Only attach error fallback for non-blob sources
-    if (!channel.src.startsWith("blob:")) {
-      player.addEventListener("error", () => {
-        showFallback(player, channel);
-      });
-    }
-  }
+    fetch(channel.src)
+      .then(r => r.blob())
+      .then(blob => {
+          const url = URL.createObjectURL(blob);
+          player.src = url;
+          player.play().catch(() => {});
+      })
+      .catch(() => showFallback(player, channel));
+}
 
   // ======================
   // Generic iframe (for external dashboards/maps)

@@ -2,7 +2,7 @@ const channels = [
 /* -------- ARABIC -------- */
 //{id: 1, name: "Al Jazeera English", group: "arabic", type: "hls", src: "https://live‑hls‑apps‑aje‑fa.getaj.net/AJE/index.m3u8" }, // updated HLS
 //{id: 2, name: "Al Jazeera Arabic", group: "arabic", type: "blob", src: "blob:https://www.aljazeera.net/aedc5f4d-bdfc-4a30-bbf6-6f3556994b6b", logo: "./networkslogos/arabic/aljazeera-arabic.svg" },
-//{id: 3, name: "Al Jazeera Mubasher", group: "arabic", type: "blob", src: "blob:https://www.aljazeera.net/803e2ea5-da27-4af2-9fd0-1c6e3a8fa04b", logo: "./networkslogos/arabic/aljazeera-mubashar.svg" },
+{id: 3, name: "Al Jazeera Mubasher", group: "arabic", type: "hls", src: "https://live-hls-apps-ajm-fa.getaj.net/AJM/index.m3u8", logo: "./networkslogos/arabic/aljazeera-mubashar.svg" },
 
 
 {id: 2, name: "Al Jazeera Arabic", group: "arabic", type: "youtube", channelId: "UCfiwzLy-8yKzIbsmZTzxDgw", logo: "./networkslogos/arabic/aljazeera-arabic.svg" },
@@ -17,8 +17,8 @@ const channels = [
 //{id: 8, name: "Asharq News", group: "arabic", type: "hls", src: "https://live-news.asharq.com/asharq.m3u8" },
 //{id: 9, name: "France 24 Arabic", group: "arabic", type: "hls", src: "https://live.france24.com/hls/live/2037222/F24_AR_HI_HLS/master_900.m3u8", logo: "./networkslogos/arabic/france24-arabic.svg" },
 //{id: 10, name: "RT Arabic", group: "arabic", type: "hls", src: "https://rt-arb.rttv.com/dvr/rtarab/playlist.m3u8", logo: "./networkslogos/arabic/rt-arabic.svg" },
-//{id: 11, name: "TRT عربي", group: "arabic", type: "youtube", src: "T3nM6F3yYqY" },
-//{id: 12, name: "CGTN Arabic", group: "arabic", type: "youtube", src: "sJz8rWZKf7g" },
+//{id: 11, name: "TRT عربي", group: "arabic", type: "hls", src: "https://tv-trtarabi.medya.trt.com.tr/master.m3u8" },
+//{id: 12, name: "CGTN Arabic", group: "arabic", type: "hls", src: "https://arabic-livews.cgtn.com/hls/LSveq57bErWLinBnxosqjisZ220802LSTefTAS9zc9mpU08y3np9TH220802cd/playlist.m3u8" },
 //{id: 13, name: "Al Hurra", group: "arabic", type: "youtube", src: "i2n0qKX0v9k" },
 //{id: 14, name: "Al Mayadeen", group: "arabic", type: "hls", src: "https://mdnlv.cdn.octivid.com/almdn/smil:mpegts.stream.smil/playlist.m3u8", logo: "./networkslogos/arabic/almayadeen.png" },
 //{id: 15, name: "BBC Arabic", group: "arabic", type: "youtube", src: "O1pGmVtj2Y8", logo: "./networkslogos/arabic/bbc-arabic.png" },
