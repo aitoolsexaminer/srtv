@@ -51,38 +51,43 @@ function activateTile(number) {
     if (legend) legend.style.display = "none";
 
     // ====================== YOUTUBE IFRAME ======================
-    if (player.tagName === "IFRAME" && player.src.includes("youtube.com/embed")) {
-        const src = player.getAttribute("src");
-        if (!src) return;
+    // ====================== YOUTUBE IFRAME ======================
+if (player.tagName === "IFRAME" && player.src.includes("youtube.com")) {
+    const src = player.getAttribute("src");
+    if (!src) return;
 
-        // Stop main video
-        if (mainVideo) {
-            mainVideo.pause();
-            mainVideo.src = "";
-            mainVideo.style.display = "none";
-        }
+    // Stop main video
+    if (mainVideo) {
+        mainVideo.pause();
+        mainVideo.src = "";
+        mainVideo.style.display = "none";
+    }
 
-        // Show iframe
-        mainFrame.style.display = "block";
+    // Show iframe
+    mainFrame.style.display = "block";
 
-        // Destroy previous YouTube player if exists
-        if (ytPlayer) {
-            ytPlayer.destroy();
-            ytPlayer = null;
-        }
+    // Destroy previous YouTube player if exists
+    if (ytPlayer) {
+        ytPlayer.destroy();
+        ytPlayer = null;
+    }
 
-        // Extract YouTube ID from src
-        const videoIdMatch = src.match(/embed\/([a-zA-Z0-9_-]+)/);
-        const videoId = videoIdMatch ? videoIdMatch[1] : null;
-        if (!videoId) return console.warn("Invalid YouTube video ID");
+    // Try to extract a videoId for embed/live_stream URLs
+    let videoId = null;
 
+    // Standard video embed
+    const embedMatch = src.match(/embed\/([a-zA-Z0-9_-]+)/);
+    if (embedMatch) videoId = embedMatch[1];
+
+    // Live stream via channel
+    const liveMatch = src.match(/live_stream\?channel=([a-zA-Z0-9_-]+)/);
+    if (liveMatch) videoId = null; // cannot use YT.Player API for live streams
+
+    if (videoId) {
+        // Use YouTube API for standard embed
         ytPlayer = new YT.Player('mainFeedFrame', {
             videoId: videoId,
-            playerVars: {
-                autoplay: 1,
-                playsinline: 1,
-                mute: mainMuted ? 1 : 0
-            },
+            playerVars: { autoplay: 1, playsinline: 1, mute: mainMuted ? 1 : 0 },
             events: {
                 'onReady': function(event) {
                     event.target.playVideo();
@@ -90,9 +95,13 @@ function activateTile(number) {
                 }
             }
         });
-
-        currentMainSrc = src;
+    } else {
+        // Live stream or non-standard embed, just set iframe src
+        mainFrame.src = src;
     }
+
+    currentMainSrc = src;
+}
 
     // ====================== VIDEO PLAYER (HLS, MP4, WebM, Blob) ======================
     else if (player.tagName === "VIDEO") {
@@ -272,7 +281,7 @@ document.addEventListener("keydown", (e) => {
 
 /* ========================= DOM READY ========================= */
 document.addEventListener("DOMContentLoaded", () => {
-    
+
     attachControlButtons();
     
     const startBtn = document.getElementById("startOk");
@@ -452,10 +461,20 @@ function loadChannelIntoTile(slot, channel) {
 
     let player;
     if (channel.type === "youtube") {
-        player = document.createElement("iframe");
-        player.src = `https://www.youtube.com/embed/${channel.src}?autoplay=1&mute=1&playsinline=1&enablejsapi=1`;
-        player.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-    } else if (channel.type === "hls") {
+    player = document.createElement("iframe");
+
+    if (channel.videoId) {
+        // Standard video
+        player.src = `https://www.youtube.com/embed/${channel.videoId}?autoplay=1&mute=1&playsinline=1&enablejsapi=1`;
+    } else if (channel.channelId) {
+        // Live channel
+        player.src = `https://www.youtube.com/embed/live_stream?channel=${channel.channelId}&autoplay=1&mute=1&playsinline=1`;
+    }
+
+    player.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+    }
+
+    else if (channel.type === "hls") {
         player = document.createElement("video");
         player.autoplay = true;
         player.muted = true;
