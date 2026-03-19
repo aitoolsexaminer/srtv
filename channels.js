@@ -27,13 +27,13 @@ const channels = [
 
 /* -------- LEBANESE -------- */
 //{id: 16, name: "LBCI Lebanon", group: "lebanese", type: "youtube", src: "hG9Z6Qp7wG4", logo: "./networkslogos/lebanese/lbci.png" },
-{id: 17, name: "MTV Lebanon", group: "lebanese", type: "youtube", channelId: "UC9_XmAwE5szLHF76FjMylaw", logo: "./networkslogos/lebanese/mtvlebanon.png" },
+{id: 17, name: "MTV Lebanon", group: "lebanese", type: "hls", src: "https://hms.pfs.gdn/v1/broadcast/mtv/playlist.m3u8", logo: "./networkslogos/lebanese/mtvlebanon.png" },
 {id: 18, name: "Al Jadeed", group: "lebanese", type: "youtube", channelId: "UC4JCsTLFcHGk10qpiNMh0Ww", logo: "./networkslogos/lebanese/aljadeed.png" },
 {id: 19, name: "OTV Lebanon", group: "lebanese", type: "blob", src: "blob:https://otv.com.lb/a7bfdad0-890e-4151-8326-d8ee547740a1", logo: "./networkslogos/lebanese/otv.svg" },
-//{id: 20, name: "Tele Liban", group: "lebanese", type: "blob", src: "blob:https://www.teleliban.com.lb/3c431924-ae39-4180-b1b0-4fa78d518848", logo: "./networkslogos/lebanese/teleliban.png" },
+{id: 20, name: "Tele Liban", group: "lebanese", type: "blob", src: "blob:https://www.teleliban.com.lb/3c431924-ae39-4180-b1b0-4fa78d518848", logo: "./networkslogos/lebanese/teleliban.png" },
 {id: 21, name: "NBN Lebanon", group: "lebanese", type: "blob", src: "blob:https://player.livepush.io/774d3a9a-ace0-4f6f-b142-986953295d70", logo: "./networkslogos/lebanese/nbn.png" },
-//{id: 22, name: "Al Manar", group: "lebanese", type: "hls", src: "https://edge.fastpublish.me/live/index.m3u8", logo: "./networkslogos/lebanese/almanar2.png" },
-{id: 132, name: "RED TV", group: "lebanese", type: "youtube", channelId: "UCOy_oaKCuNL8tDlT1CuLJjA", logo: "./networkslogos/lebanese/redtv.png" },
+{id: 22, name: "Al Manar", group: "lebanese", type: "hls", src: "https://edge.fastpublish.me/live/index.m3u8", logo: "./networkslogos/lebanese/almanar2.png" },
+{id: 132, name: "RED TV", group: "lebanese", type: "hls", src: "https://live.kwikmotion.com/redtvlive/redtv.smil/playlist.m3u8", logo: "./networkslogos/lebanese/redtv.png" },
 //{id: 23, name: "Al Thania TV", group: "lebanese", type: "youtube", src: "@althaniatv/live" },
 
 /* -------- GULF / REGIONAL -------- */
