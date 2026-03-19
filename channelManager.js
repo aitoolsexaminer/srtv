@@ -180,6 +180,62 @@ function attachBroadcastEvents() {
     if (!tile) return;
 
     const number = tile.dataset.number;
+    console.log("Broadcast clicked:", number);
     activateTile(number);
   });
 }
+
+// ==========================
+// Load a channel into a tile
+// ==========================
+function loadChannelIntoTile(slot, channel) {
+  const tile = document.querySelector(`.dashboard .tile[data-number="${slot}"]`);
+  if (!tile) return;
+
+  const inner = tile.querySelector(".tile-inner");
+  inner.innerHTML = "";
+
+  const player = createPlayer(channel);
+  inner.appendChild(player);
+}
+
+// ==========================
+// Channel selection inputs
+// ==========================
+function attachChannelInputs() {
+  document.querySelectorAll(".channel-plus-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const slot = btn.dataset.slot;
+      const input = document.querySelector(`.channel-search[data-slot="${slot}"]`);
+      const channelId = parseInt(input.value);
+      const channel = channels.find((c) => c.id === channelId);
+
+      if (!channel) return alert("Channel not found");
+
+      const dashboard = document.querySelector(".dashboard");
+      const existingTile = dashboard.querySelector(`.tile[data-slot="${slot}"]`);
+      const newTile = createTile(channel, slot);
+
+      if (existingTile) {
+        existingTile.replaceWith(newTile);
+      } else {
+        dashboard.appendChild(newTile);
+      }
+    });
+  });
+}
+
+
+
+
+
+// ==========================
+// Initialize dashboard
+// ==========================
+function initDashboard() {
+  buildChannels();
+  attachBroadcastEvents();
+  attachChannelInputs();
+}
+
+document.addEventListener("DOMContentLoaded", initDashboard);

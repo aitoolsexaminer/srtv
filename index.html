@@ -77,10 +77,13 @@
               <div class="tile main-feed">
               
 
-                <div class="main-feed">
                 <iframe id="mainFeedFrame" style="display:none;"></iframe>
-                <video id="mainFeedVideo" style="display:none;"></video>
-               
+
+                <div id="mainFeedOverlay" class="main-feed-overlay"></div>
+                
+                <video id="mainFeedVideo" autoplay playsinline style="display:none;"></video>
+
+                 
 
                 <div id="channelOverlay" class="channel-overlay"></div>
 
@@ -114,7 +117,7 @@
                   </div>
 
                 </div>
-               </div>
+               
  
 
                 <div class="control-stack">
@@ -343,6 +346,8 @@
     </div>
   </div>
 
+  <script src="https://www.youtube.com/iframe_api"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 
   <script src="rss.js"></script>
