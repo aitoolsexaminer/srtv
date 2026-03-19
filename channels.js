@@ -17,7 +17,7 @@ const channels = [
 //{id: 8, name: "Asharq News", group: "arabic", type: "hls", src: "https://live-news.asharq.com/asharq.m3u8" },
 //{id: 9, name: "France 24 Arabic", group: "arabic", type: "hls", src: "https://live.france24.com/hls/live/2037222/F24_AR_HI_HLS/master_900.m3u8", logo: "./networkslogos/arabic/france24-arabic.svg" },
 //{id: 10, name: "RT Arabic", group: "arabic", type: "hls", src: "https://rt-arb.rttv.com/dvr/rtarab/playlist.m3u8", logo: "./networkslogos/arabic/rt-arabic.svg" },
-//{id: 11, name: "TRT عربي", group: "arabic", type: "youtube", src: "T3nM6F3yYqY" },
+{id: 11, name: "TRT عربي", group: "arabic", type: "hls", src: "https://tv-trtarabi.medya.trt.com.tr/master.m3u8", logo: "./networkslogos/arabic/trt-arabic.svg" },
 //{id: 12, name: "CGTN Arabic", group: "arabic", type: "youtube", src: "sJz8rWZKf7g" },
 //{id: 13, name: "Al Hurra", group: "arabic", type: "youtube", src: "i2n0qKX0v9k" },
 //{id: 14, name: "Al Mayadeen", group: "arabic", type: "hls", src: "https://mdnlv.cdn.octivid.com/almdn/smil:mpegts.stream.smil/playlist.m3u8", logo: "./networkslogos/arabic/almayadeen.png" },
