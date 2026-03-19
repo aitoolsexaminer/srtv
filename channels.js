@@ -22,7 +22,9 @@ const channels = [
 //{id: 13, name: "Al Hurra", group: "arabic", type: "youtube", src: "i2n0qKX0v9k" },
 {id: 14, name: "Al Mayadeen", group: "arabic", type: "hls", src: "https://mdnlv.cdn.octivid.com/almdn/smil:mpegts.stream.smil/playlist.m3u8", logo: "./networkslogos/arabic/almayadeen.png" },
 {id: 15, name: "BBC Arabic", group: "arabic", type: "youtube", channelId: "UCelk6aHijZq-GJBBB9YpReA", logo: "./networkslogos/arabic/bbc-arabic.png" },
-{id:133, name:"i24NEWS Arabic", group:"arabic", type:"hls", src:"https://bcovlive-a.akamaihd.net/95116e8d79524d87bf3ac20ba04241e3/eu-central-1/5377161796001/playlist.m3u8", logo: "./networkslogos/arabic/i24.png" },
+
+{id:133, name:"i24NEWS Arabic", group:"arabic", type:"blob", src:"blob:https://video.i24news.tv/a846e4e4-bb86-4032-a135-35ae7735eef3", logo: "./networkslogos/arabic/i24.png" },
+//{id:133, name:"i24NEWS Arabic", group:"arabic", type:"hls", src:"https://bcovlive-a.akamaihd.net/95116e8d79524d87bf3ac20ba04241e3/eu-central-1/5377161796001/playlist.m3u8", logo: "./networkslogos/arabic/i24.png" },
 
 
 /* -------- LEBANESE -------- */
@@ -30,7 +32,10 @@ const channels = [
 {id: 17, name: "MTV Lebanon", group: "lebanese", type: "hls", src: "https://hms.pfs.gdn/v1/broadcast/mtv/playlist.m3u8", logo: "./networkslogos/lebanese/mtvlebanon.png" },
 {id: 18, name: "Al Jadeed", group: "lebanese", type: "youtube", channelId: "UC4JCsTLFcHGk10qpiNMh0Ww", logo: "./networkslogos/lebanese/aljadeed.png" },
 {id: 19, name: "OTV Lebanon", group: "lebanese", type: "blob", src: "blob:https://otv.com.lb/a7bfdad0-890e-4151-8326-d8ee547740a1", logo: "./networkslogos/lebanese/otv.svg" },
-{id: 20, name: "Tele Liban", group: "lebanese", type: "blob", src: "blob:https://www.teleliban.com.lb/3c431924-ae39-4180-b1b0-4fa78d518848", logo: "./networkslogos/lebanese/teleliban.png" },
+																	 
+//{id: 20, name: "Tele Liban", group: "lebanese", type: "hls", src: "https://cdn.catiacast.video/abr/ed8f807e2548db4507d2a6f4ba0c4a06/playlist.m3u8", logo: "./networkslogos/lebanese/teleliban.png" },
+{id: 20, name: "Tele Liban", group: "lebanese", type: "blob", src: "blob:https://www.teleliban.com.lb/b7329943-1453-4805-84f0-f9cb9226bda5", logo: "./networkslogos/lebanese/teleliban.png" },
+
 {id: 21, name: "NBN Lebanon", group: "lebanese", type: "blob", src: "blob:https://player.livepush.io/774d3a9a-ace0-4f6f-b142-986953295d70", logo: "./networkslogos/lebanese/nbn.png" },
 {id: 22, name: "Al Manar", group: "lebanese", type: "hls", src: "https://edge.fastpublish.me/live/index.m3u8", logo: "./networkslogos/lebanese/almanar2.png" },
 {id: 132, name: "RED TV", group: "lebanese", type: "hls", src: "https://live.kwikmotion.com/redtvlive/redtv.smil/playlist.m3u8", logo: "./networkslogos/lebanese/redtv.png" },
