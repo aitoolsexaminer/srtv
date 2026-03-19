@@ -50,12 +50,12 @@ function activateTile(number) {
     const legend = document.querySelector(".main-feed .legend");
     if (legend) legend.style.display = "none";
 
-    // ====================== YOUTUBE PLAYER ======================
-    if (player.tagName === "IFRAME") {
+    // ====================== YOUTUBE IFRAME ======================
+    if (player.tagName === "IFRAME" && player.src.includes("youtube.com/embed")) {
         const src = player.getAttribute("src");
         if (!src) return;
 
-        // Stop HLS video
+        // Stop main video
         if (mainVideo) {
             mainVideo.pause();
             mainVideo.src = "";
@@ -74,12 +74,8 @@ function activateTile(number) {
         // Extract YouTube ID from src
         const videoIdMatch = src.match(/embed\/([a-zA-Z0-9_-]+)/);
         const videoId = videoIdMatch ? videoIdMatch[1] : null;
-        if (!videoId) {
-            console.warn("Invalid YouTube video ID");
-            return;
-        }
+        if (!videoId) return console.warn("Invalid YouTube video ID");
 
-        // Initialize YouTube player
         ytPlayer = new YT.Player('mainFeedFrame', {
             videoId: videoId,
             playerVars: {
@@ -98,7 +94,7 @@ function activateTile(number) {
         currentMainSrc = src;
     }
 
-    // ====================== HLS / VIDEO PLAYER ======================
+    // ====================== VIDEO PLAYER (HLS, MP4, WebM, Blob) ======================
     else if (player.tagName === "VIDEO") {
         const tile = player.closest(".tile");
         const channelId = tile?.dataset.channelId;
@@ -108,7 +104,7 @@ function activateTile(number) {
         // Hide iframe
         if (mainFrame) {
             mainFrame.style.display = "none";
-            mainFrame.src = ""; // clear old iframe
+            mainFrame.innerHTML = ""; // clear old iframe
         }
 
         // Show main video
@@ -120,7 +116,8 @@ function activateTile(number) {
             window.mainHls = null;
         }
 
-        // Initialize HLS or fallback
+        // ====================== Handle Different Video Types ======================
+        // HLS stream
         if (channel.type === "hls" || (channel.src && channel.src.includes(".m3u8"))) {
             if (typeof Hls !== "undefined" && Hls.isSupported()) {
                 window.mainHls = new Hls();
@@ -129,13 +126,44 @@ function activateTile(number) {
             } else {
                 mainVideo.src = channel.src;
             }
-        } else {
+        }
+        // Blob / MP4 / WebM
+        else if (channel.type === "blob" || /\.(mp4|webm)$/i.test(channel.src)) {
             mainVideo.src = channel.src;
+        }
+        // Generic iframe embedded as video (rare)
+        else {
+            console.warn("Unknown video type for main tile:", channel);
+            mainVideo.src = channel.src || "";
         }
 
         mainVideo.muted = mainMuted;
+        mainVideo.autoplay = true;
+        mainVideo.playsInline = true;
+        mainVideo.controls = false;
+
         mainVideo.play().catch(() => {});
+
         currentMainSrc = channel.src;
+    }
+
+    // ====================== GENERIC IFRAME ======================
+    else if (player.tagName === "IFRAME") {
+        const src = player.src;
+        if (!src) return;
+
+        // Stop main video
+        if (mainVideo) {
+            mainVideo.pause();
+            mainVideo.src = "";
+            mainVideo.style.display = "none";
+        }
+
+        // Show iframe
+        mainFrame.style.display = "block";
+        mainFrame.src = src;
+
+        currentMainSrc = src;
     }
 }
 

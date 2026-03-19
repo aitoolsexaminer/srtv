@@ -29,7 +29,7 @@ function attachHls(player, src) {
 }
 
 // ==========================
-// Helper: Create Player
+// Helper: Create Player (Updated)
 // ==========================
 function createPlayer(channel) {
   let player;
@@ -40,7 +40,8 @@ function createPlayer(channel) {
   if (channel.type === "youtube") {
     player = document.createElement("iframe");
     player.src = `https://www.youtube.com/embed/${channel.src}?autoplay=1&mute=1&playsinline=1&enablejsapi=1`;
-    player.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+    player.allow =
+      "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
   }
 
   // ======================
@@ -53,30 +54,26 @@ function createPlayer(channel) {
   }
 
   // ======================
-  // Blob / Mixed Source FIXED
+  // Blob / MP4 / WebM
   // ======================
-  else if (channel.type === "blob") {
+  else if (channel.type === "blob" || /\.(mp4|webm)$/i.test(channel.src)) {
     player = document.createElement("video");
     setupVideo(player);
-
-    const src = channel.fetchUrl || channel.src;
-
-    if (!src) {
-      showFallback(player, channel);
-      return player;
-    }
-
-    // ✅ If it's an HLS stream → use HLS.js
-    if (src.includes(".m3u8")) {
-      attachHls(player, src);
-    } else {
-      // ✅ Otherwise treat as normal video (mp4, webm, etc.)
-      player.src = src;
-    }
+    player.src = channel.src;
   }
 
   // ======================
-  // Common styles + errors
+  // Generic iframe (for external dashboards/maps)
+  // ======================
+  else if (channel.type === "iframe" || channel.src.startsWith("http")) {
+    player = document.createElement("iframe");
+    player.src = channel.src;
+    player.allow = "autoplay; encrypted-media; fullscreen; picture-in-picture";
+    player.style.border = "0";
+  }
+
+  // ======================
+  // Common styles + error handling
   // ======================
   player.style.width = "100%";
   player.style.height = "100%";

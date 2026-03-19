@@ -13,7 +13,7 @@ const channels = [
 {id: 4, name: "Al Arabiya", group: "arabic", type: "hls", src: "https://live.alarabiya.net/alarabiapublish/alarabiya.smil/playlist.m3u8", logo: "./networkslogos/arabic/alarabiya.png" },
 //{id: 5, name: "Al Hadath", group: "arabic", type: "hls", src: "https://live.alarabiya.net/alarabiapublish/alhadath.smil/playlist.m3u8", logo: "./networkslogos/arabic/alhadath.png" },
 //{id: 6, name: "Sky News Arabia", group: "arabic", type: "hls", src: "https://live-stream.skynewsarabia.com/c-horizontal-channel/horizontal-stream/index.m3u8", logo: "./networkslogos/arabic/skynewsarabia.svg" },
-//{id: 7, name: "Al Araby TV", group: "arabic", type: "blob", src: "blob:https://www.alaraby.com/84db372d-b99d-4846-94c8-333c3ff368a6", logo: "./networkslogos/arabic/alaraby.svg" },
+{id: 7, name: "Al Araby TV", group: "arabic", type: "blob", src: "blob:https://www.alaraby.com/84db372d-b99d-4846-94c8-333c3ff368a6", logo: "./networkslogos/arabic/alaraby.svg" },
 //{id: 8, name: "Asharq News", group: "arabic", type: "hls", src: "https://live-news.asharq.com/asharq.m3u8" },
 //{id: 9, name: "France 24 Arabic", group: "arabic", type: "hls", src: "https://live.france24.com/hls/live/2037222/F24_AR_HI_HLS/master_900.m3u8", logo: "./networkslogos/arabic/france24-arabic.svg" },
 //{id: 10, name: "RT Arabic", group: "arabic", type: "hls", src: "https://rt-arb.rttv.com/dvr/rtarab/playlist.m3u8", logo: "./networkslogos/arabic/rt-arabic.svg" },
@@ -28,7 +28,7 @@ const channels = [
 /* -------- LEBANESE -------- */
 //{id: 16, name: "LBCI Lebanon", group: "lebanese", type: "youtube", src: "hG9Z6Qp7wG4", logo: "./networkslogos/lebanese/lbci.png" },
 {id: 17, name: "MTV Lebanon", group: "lebanese", type: "youtube", src: "fAH_4RsED4U", logo: "./networkslogos/lebanese/mtvlebanon.png" },
-{id: 18, name: "Al Jadeed", group: "lebanese", type: "youtube", src: "@ALJadeedNewslb/live", logo: "./networkslogos/lebanese/aljadeed.png" },
+//{id: 18, name: "Al Jadeed", group: "lebanese", type: "youtube", src: "a9I4O3jEhr8", logo: "./networkslogos/lebanese/aljadeed.png" },
 //{id: 19, name: "OTV Lebanon", group: "lebanese", type: "blob", src: "blob:https://otv.com.lb/387d328b-194e-4f67-94c7-cb57fada8546", logo: "./networkslogos/lebanese/otv.svg" },
 //{id: 20, name: "Tele Liban", group: "lebanese", type: "blob", src: "blob:https://www.teleliban.com.lb/3c431924-ae39-4180-b1b0-4fa78d518848", logo: "./networkslogos/lebanese/teleliban.png" },
 //{id: 21, name: "NBN Lebanon", group: "lebanese", type: "blob", src: "blob:https://player.livepush.io/774d3a9a-ace0-4f6f-b142-986953295d70", logo: "./networkslogos/lebanese/nbn.png" },
