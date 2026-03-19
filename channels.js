@@ -5,7 +5,7 @@ const channels = [
 //{id: 3, name: "Al Jazeera Mubasher", group: "arabic", type: "blob", src: "blob:https://www.aljazeera.net/803e2ea5-da27-4af2-9fd0-1c6e3a8fa04b", logo: "./networkslogos/arabic/aljazeera-mubashar.svg" },
 
 
-{id: 2, name: "Al Jazeera Arabic", group: "arabic", type: "youtube", src: "bNyUyrR0PHo", logo: "./networkslogos/arabic/aljazeera-arabic.svg" },
+{id: 2, name: "Al Jazeera Arabic", group: "arabic", type: "youtube", channelId: "UCfiwzLy-8yKzIbsmZTzxDgw", logo: "./networkslogos/arabic/aljazeera-arabic.svg" },
 //{id: 3, name: "Al Jazeera Mubasher", group: "arabic", type: "youtube", src: "rvJOGTSQNj8", logo: "./networkslogos/arabic/aljazeera-mubashar.svg" },
 
 
