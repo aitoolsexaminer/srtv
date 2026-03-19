@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Situation Room TV Dashboard</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@100;300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div id="startScreen">
+    <div class="start-content">
+      <div id="main-start">
+      <h1>Situation Room TV Dashboard</h1>
+
+      <p class ="starttext">
+        The application is designed to work best on large screens.
+        <br>It can be heavy on system and browser resources, so it runs best on powerful computers with modern browsers.
+        <br>
+        <br>
+        The page will open in full-screen mode for a better experience.
+        <br>
+        You can switch the view using the <kbd>Esc</kbd> and <kbd>F11</kbd> keys.
+      </p>
+      
+              
+          <div class="start-actions">
+             <button id="startOk">OK</button>
+         <a href="#" id="about-link" class="about-toggle">About</a>
+        </div>
+
+    </div>
+
+            <div id="about-content" class="about-panel">
+              <h2>About This Dashboard</h2>
+              <h3>• Version 1.0 •</h3>
+             
+              <div class="about-scroll">
+
+              <h4>Situation Room TV Dashboard</h4>
+              <p>The Situation Room TV Dashboard is a browser-based interface designed for people who want to follow global news in real time from multiple sources at once. Instead of switching between different channels and websites, the dashboard brings everything together into a single screen.</p>
+              
+              <h4>Live TV Monitoring</h4>
+              <p>The dashboard displays a wall of live television channels that can run at the same time. This allows you to monitor multiple broadcasts simultaneously and quickly see how different networks are covering the same story.
+              <br>  
+              Any channel can be selected and moved to the main viewing window with a single click, while the other channels continue playing in the background.
+              <br>  
+              <span class="warning">Unavailable in the current version:</span> Users have the ability to switch out any default channel by selecting from a diverse set of channels organized by region and topics.</p>
+
+              <h4>Global News Headlines</h4>
+              <p>Alongside the live broadcasts, the dashboard includes a Global News Monitor that continuously displays the latest headlines from major international news outlets. This provides a quick overview of breaking stories and developing events from around the world.</p>
+
+              <h4>World Clocks</h4>
+              <p>A built-in world clock panel shows the current time in key cities across different regions. This helps place events in context and makes it easier to follow news as it unfolds in different parts of the world.</p>
+
+              <h4>Designed for a Big-Screen Experience</h4>
+              <p>The dashboard is designed to work especially well on large displays or multi-monitor setups, creating an experience similar to a newsroom monitoring wall. It offers a clear and organized way to watch multiple broadcasts, track headlines, and stay connected to global events in real time.</p>
+
+              </div>
+
+              <button id="about-close" class="about-toggle">Back</button>
+            </div>
+
+  </div>
+</div>
+
+   
+
+
+  <div class="viewport">
+    
+    <div class="dashboard">
+
+              <div class="tile main-feed">
+              
+
+                <div class="main-feed">
+                <iframe id="mainFeedFrame" style="display:none;"></iframe>
+                <video id="mainFeedVideo" style="display:none;"></video>
+               
+
+                <div id="channelOverlay" class="channel-overlay"></div>
+
+                <!-- DEFAULT LEGEND -->
+                <div class="legend">
+
+                  <div class="legend-row">
+                    <div class="icon broadcast"></div>
+                    <span>Cast channel to the primary window.<br> Or press its assigned keyboard number.</span>
+                  </div>
+
+                  <div class="legend-row">
+                    <div class="icon fullscreen"></div>
+                    <span>[f] Enter fullscreen mode for the primary window.</span>
+                  </div>
+
+                  <div class="legend-row">
+                    <div class="icon unmute"></div>
+                    <span>[m] Mute or unmute audio in the primary window.</span>
+                  </div>
+
+                  <div class="legend-row">
+                    <div class="icon dim"></div>
+                    <span>[d] Dim the other windows except primary window.</span>
+                  </div>
+
+                  <div class="legend-row">
+                    <div class="icon settings"></div>
+                    <span> [s] Open settings<br> [modify Channels, World Clock, and News agencies]
+                    </span>
+                  </div>
+
+                </div>
+               </div>
+ 
+
+                <div class="control-stack">
+                  <div class="control-btn fullscreen" data-control="fullscreen"></div>
+                  <div class="control-btn mute unmute" data-control="mute"></div>
+                  <div class="control-btn dim" data-control="dim"></div>
+                </div>
+
+              
+            </div>
+
+
+            
+
+
+            <!-- Row 5 -->
+
+            <div class="tile clock-settings-panel">
+
+              <div class="clock-settings-layout">
+
+
+                <!-- WORLD CLOCK -->
+
+                <div class="clock-panel">
+
+                  <div class="clock-header">WORLD CLOCK</div>
+
+                  <div class="clock-columns"> 
+
+                    <div class="feed-column-clock">
+
+                      <!-- DC -->
+                      <div class="clock-option-row">
+                      <div class="clock-option-clock" data-slot="0" data-clock-label="time-dc">DC</div>
+                      <div class="clock-track">
+                        <div class="ticker-content" id="time-dc"></div>
+                      </div>
+                      </div>
+
+                      <!-- GMT -->
+                      <div class="clock-option-row">
+                      <div class="clock-option-clock" data-slot="1" data-clock-label="time-gmt">GMT</div>
+                      <div class="clock-track">
+                        <div class="ticker-content" id="time-gmt"></div>
+                      </div>
+                      </div>
+
+                      <!-- MOSCOW -->
+                      <div class="clock-option-row">
+                      <div class="clock-option-clock" data-slot="2" data-clock-label="time-moscow">MOSCOW</div>
+                      <div class="clock-track">
+                      <div class="ticker-content" id="time-moscow"></div>
+                      </div>
+                      </div>
+
+
+                      <div class="clock-option-row">
+                      <div class="clock-option-clock" data-slot="3" data-clock-label="time-bei">BEIRUT</div>
+                      <div class="clock-track">
+                      <div class="ticker-content" id="time-bei"></div>
+                      </div>
+                      </div>
+
+                    </div>
+
+
+                    <div class="feed-column-clock">
+
+
+                         <!-- TEL AVIV -->
+                      <div class="clock-option-row">
+                      <div class="clock-option-clock" data-slot="4" data-clock-label="time-telaviv">TEL AVIV</div>
+                      <div class="clock-track">
+                      <div class="ticker-content" id="time-telaviv"></div>
+                      </div>
+                      </div>
+
+                      <!-- TEHRAN -->
+                      <div class="clock-option-row">
+                      <div class="clock-option-clock" data-slot="5" data-clock-label="time-tehran">TEHRAN</div>
+                      <div class="clock-track">
+                      <div class="ticker-content" id="time-tehran"></div>
+                      </div>
+                      </div>
+
+                      <!-- BEIJING -->
+                      <div class="clock-option-row">
+                      <div class="clock-option-clock" data-slot="6" data-clock-label="time-beij">BEIJING</div>
+                      <div class="clock-track">
+                      <div class="ticker-content" id="time-beij"></div>
+                      </div>
+                      </div>
+
+                      <!-- TOKYO -->
+                      <div class="clock-option-row">
+                      <div class="clock-option-clock" data-slot="7" data-clock-label="time-tokyo">TOKYO</div>
+                      <div class="clock-track">
+                      <div class="ticker-content" id="time-tokyo"></div>
+                      </div>
+                      </div>
+                     
+
+                    </div>
+
+                  </div>
+                </div>
+
+
+                <!-- SETTINGS -->
+
+                <div class="settings-column settings-section">
+                  <div class="icon-settings"></div>
+                </div>
+
+                </div>
+              </div>
+            
+
+
+            <div class="tile breaking-feed">
+
+              <div class="control-header">GLOBAL NEWS MONITOR</div>
+
+              <div class="feed-columns">
+
+                <div class="feed-column">
+
+                  <div class="ticker-row" data-feed="Reuters" data-slot="0">
+                    <div class="agency">REUTERS</div>
+                    <div class="ticker-track">
+                      <div class="ticker-content"></div>
+                    </div>
+                  </div>
+
+                  <div class="ticker-row" data-feed="AFP" data-slot="1">
+                    <div class="agency">AFP</div>
+                    <div class="ticker-track">
+                      <div class="ticker-content"></div>
+                    </div>
+                  </div>
+
+                  <div class="ticker-row" data-feed="AP" data-slot="2">
+                    <div class="agency">AP</div>
+                    <div class="ticker-track">
+                      <div class="ticker-content"></div>
+                    </div>
+                  </div>
+
+                  <div class="ticker-row" data-feed="Bloomberg" data-slot="3">
+                    <div class="agency">Bloomberg</div>
+                    <div class="ticker-track">
+                      <div class="ticker-content"></div>
+                    </div>
+                  </div>
+
+                  <div class="ticker-row" data-feed="CNN" data-slot="4">
+                    <div class="agency">CNN</div>
+                    <div class="ticker-track">
+                      <div class="ticker-content"></div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="feed-column">
+
+                  <div class="ticker-row" data-feed="AlJazeera_ar" data-slot="5">
+                    <div class="agency">AlJazeera</div>
+                    <div class="ticker-track">
+                      <div class="ticker-content"></div>
+                    </div>
+                  </div>
+
+                  <div class="ticker-row" data-feed="AlArabiya_ar" data-slot="6">
+                    <div class="agency">AlArabiya</div>
+                    <div class="ticker-track">
+                      <div class="ticker-content"></div>
+                    </div>
+                  </div>
+
+                  <div class="ticker-row" data-feed="France24_ar" data-slot="7">
+                    <div class="agency">France24</div>
+                    <div class="ticker-track">
+                      <div class="ticker-content"></div>
+                    </div>
+                  </div>
+
+                  <div class="ticker-row" data-feed="RT_ar" data-slot="8">
+                    <div class="agency">RT</div>
+                    <div class="ticker-track">
+                      <div class="ticker-content"></div>
+                    </div>
+                  </div>
+
+                  <div class="ticker-row" data-feed="AsharqAwsat" data-slot="9">
+                    <div class="agency">AsharqAwsat</div>
+                    <div class="ticker-track">
+                      <div class="ticker-content"></div>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+
+            <div class="tile world-monitor" data-number="21">
+              <div class="tile-inner">
+                
+                <iframe src="https://middleeast-situation-room.vercel.app/"></iframe>
+              </div>
+              <div class="broadcast-icon"></div>
+            </div>
+
+
+            <div class="tile live-map" data-number="22">
+              <div class="tile-inner">
+                <iframe src="https://lebanon.liveuamap.com/"></iframe>
+              </div>
+              <div class="broadcast-icon"></div>
+            </div>
+
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+  <script src="rss.js"></script>
+  <script src="worldclock.js"></script>
+  <script src="renderer.js" defer></script>
+  <script src="modals.js"></script>
+  <script src="channelManager.js" defer></script>
+  <script src="channels.js"></script>
+
+
+
+
+
+
+<!-- SETTINGS POPUP MODAL -->
+<div id="Modal" class="modal">
+  <div class="modal-content">
+    
+
+    <div class="feed-column-title">
+      <div class="settings-title">SETTINGS</div>
+      <span class="close">&times;</span>
+    </div>
+
+    <div class="settings-columns">
+
+      <!-- Left Column: Channels -->
+      <div class="modal-feed-column">
+        <div class="inactive-wrapper">
+        <div class="settings-header">Channels <span class="warning">[unavailable in the current version]</span> </div>
+        <div class="channels-grid">
+
+
+        <div class="settings-option-row">
+              <div class="input-with-plus">
+              <input class="channel-search" data-slot="0" placeholder="Channel 1">
+                <button class="channel-plus-btn" data-slot="0">+</button>
+              </div>
+              <div class="channel-results"></div>
+            </div>
+
+
+            <div class="settings-option-row">
+              <div class="input-with-plus">
+              <input class="channel-search" data-slot="1" placeholder="Channel 2">
+                <button class="channel-plus-btn" data-slot="1">+</button>
+              </div>
+              <div class="channel-results"></div>
+            </div>
+
+            <div class="settings-option-row">
+              <div class="input-with-plus">
+              <input class="channel-search" data-slot="2" placeholder="Channel 3">
+                <button class="channel-plus-btn" data-slot="2">+</button>
+              </div>
+              <div class="channel-results"></div>
+            </div>
+
+
+            <div class="settings-option-row">
+              <div class="input-with-plus">
+              <input class="channel-search" data-slot="3" placeholder="Channel 4">
+                <button class="channel-plus-btn" data-slot="3">+</button>
+              </div>
+              <div class="channel-results"></div>
+            </div>
+
+            <div class="settings-option-row">
+              <div class="input-with-plus">
+              <input class="channel-search" data-slot="4" placeholder="Channel 5">
+                <button class="channel-plus-btn" data-slot="4">+</button>
+              </div>
+              <div class="channel-results"></div>
+            </div>
+
+            <div class="settings-option-row">
+              <div class="input-with-plus">
+              <input class="channel-search" data-slot="5" placeholder="Channel 6">
+                <button class="channel-plus-btn" data-slot="5">+</button>
+              </div>
+              <div class="channel-results"></div>
+            </div>
+
+            <div class="settings-option-row">
+              <div class="input-with-plus">
+              <input class="channel-search" data-slot="6" placeholder="Channel 7">
+                <button class="channel-plus-btn" data-slot="6">+</button>
+              </div>
+              <div class="channel-results"></div>
+            </div>
+
+            <div class="settings-option-row">
+              <div class="input-with-plus">
+              <input class="channel-search" data-slot="7" placeholder="Channel 8">
+                <button class="channel-plus-btn" data-slot="7">+</button>
+              </div>
+              <div class="channel-results"></div>
+            </div>
+
+            <div class="settings-option-row">
+              <div class="input-with-plus">
+              <input class="channel-search" data-slot="8" placeholder="Channel 9">
+                <button class="channel-plus-btn" data-slot="8">+</button>
+              </div>
+              <div class="channel-results"></div>
+            </div>
+
+            <div class="settings-option-row">
+              <div class="input-with-plus">
+              <input class="channel-search" data-slot="9" placeholder="Channel 10">
+                <button class="channel-plus-btn" data-slot="9">+</button>
+              </div>
+              <div class="channel-results"></div>
+            </div>
+
+            <div class="settings-option-row">
+              <div class="input-with-plus">
+              <input class="channel-search" data-slot="10" placeholder="Channel 11">
+                <button class="channel-plus-btn" data-slot="10">+</button>
+              </div>
+              <div class="channel-results"></div>
+            </div>
+
+            <div class="settings-option-row">
+              <div class="input-with-plus">
+              <input class="channel-search" data-slot="11" placeholder="Channel 12">
+                <button class="channel-plus-btn" data-slot="11">+</button>
+              </div>
+              <div class="channel-results"></div>
+            </div>
+
+            <div class="settings-option-row">
+              <div class="input-with-plus">
+              <input class="channel-search" data-slot="12" placeholder="Channel 13">
+                <button class="channel-plus-btn" data-slot="12">+</button>
+              </div>
+              <div class="channel-results"></div>
+            </div>
+
+            <div class="settings-option-row">
+              <div class="input-with-plus">
+              <input class="channel-search" data-slot="13" placeholder="Channel 14">
+                <button class="channel-plus-btn" data-slot="13">+</button>
+              </div>
+              <div class="channel-results"></div>
+            </div>
+
+            <div class="settings-option-row">
+              <div class="input-with-plus">
+              <input class="channel-search" data-slot="14" placeholder="Channel 15">
+                <button class="channel-plus-btn" data-slot="14">+</button>
+              </div>
+              <div class="channel-results"></div>
+            </div>
+
+            <div class="settings-option-row">
+              <div class="input-with-plus">
+              <input class="channel-search" data-slot="15" placeholder="Channel 16">
+                <button class="channel-plus-btn" data-slot="15">+</button>
+              </div>
+              <div class="channel-results"></div>
+            </div>
+
+            <div class="settings-option-row">
+              <div class="input-with-plus">
+              <input class="channel-search" data-slot="16" placeholder="Channel 17">
+                <button class="channel-plus-btn" data-slot="16">+</button>
+              </div>
+              <div class="channel-results"></div>
+            </div>
+
+            <div class="settings-option-row">
+              <div class="input-with-plus">
+              <input class="channel-search" data-slot="17" placeholder="Channel 18">
+                <button class="channel-plus-btn" data-slot="17">+</button>
+              </div>
+              <div class="channel-results"></div>
+            </div>
+
+            <div class="settings-option-row">
+              <div class="input-with-plus">
+              <input class="channel-search" data-slot="18" placeholder="Channel 19">
+                <button class="channel-plus-btn" data-slot="18">+</button>
+              </div>
+              <div class="channel-results"></div>
+            </div>
+
+            <div class="settings-option-row">
+              <div class="input-with-plus">
+              <input class="channel-search" data-slot="19" placeholder="Channel 20">
+                <button class="channel-plus-btn" data-slot="19">+</button>
+              </div>
+              <div class="channel-results"></div>
+            </div>
+          </div>
+             
+
+
+          </div>
+      </div>     
+      </div>
+
+
+        <!-- Settings Third Row: World Clock -->
+      <div class="modal-feed-column">
+        <div class="settings-header">World Clock</div>
+        <div class="channels-grid">
+       
+          <div class="settings-option-row">
+
+          <div class="input-with-plus">
+           <input class="city-search" data-slot="0" placeholder="DC">
+          <button class="city-plus-btn" data-slot="0">+</button>
+         
+            </div>
+              <div class="city-results"></div>
+            </div>
+
+
+            <div class="settings-option-row">
+              <div class="input-with-plus">
+                    <input class="city-search" data-slot="4" placeholder="Tel Aviv">
+                    <button class="city-plus-btn" data-slot="4">+</button>
+                  </div>
+                    <div class="city-results"></div>
+                  </div>
+
+              <div class="settings-option-row">
+                <div class="input-with-plus">
+                <input class="city-search" data-slot="1" placeholder="GMT">
+                <button class="city-plus-btn" data-slot="1">+</button>
+              </div>
+                  <div class="city-results"></div>
+                </div>
+
+
+                 <div class="settings-option-row">
+                                <div class="input-with-plus">
+
+                    <input class="city-search" data-slot="5" placeholder="Tehran">
+                                    <button class="city-plus-btn" data-slot="5">+</button>
+                  </div>
+                    <div class="city-results"></div>
+                  </div>
+
+
+
+                  <div class="settings-option-row">
+                              <div class="input-with-plus">
+
+                    <input class="city-search" data-slot="2" placeholder="Moscow">
+                                    <button class="city-plus-btn" data-slot="2">+</button>
+                    </div>
+                    <div class="city-results"></div>
+                  </div>
+
+                  <div class="settings-option-row">
+                              <div class="input-with-plus">
+
+                    <input class="city-search" data-slot="6" placeholder="Beijing">
+                                    <button class="city-plus-btn" data-slot="6">+</button>
+                    </div>
+                    <div class="city-results"></div>
+                  </div>
+
+
+
+              <div class="settings-option-row">
+                              <div class="input-with-plus">
+
+                    <input class="city-search" data-slot="3" placeholder="Beirut">
+                                    <button class="city-plus-btn" data-slot="3">+</button>
+                    </div>
+                    <div class="city-results"></div>
+                  </div>
+
+               <div class="settings-option-row">
+                              <div class="input-with-plus">
+
+                    <input class="city-search" data-slot="7" placeholder="Tokyo">
+                                    <button class="city-plus-btn" data-slot="7">+</button>
+                  </div>
+                    <div class="city-results"></div>
+                  </div>
+        </div>
+      </div>
+
+
+      <!-- Middle Column: News -->
+      <div class="modal-feed-column">
+        <div class="settings-header">Global News Monitor</div>
+          <div class="channels-grid">
+
+              <div class="settings-option-row">
+                    <div class="input-with-plus">
+                    <input class="agency-search" data-slot="0" placeholder="Reuters">
+                      <button class="news-plus-btn" data-slot="0">+</button>
+                    </div>
+                    <div class="agency-results"></div>
+                  </div>
+
+
+
+            <div class="settings-option-row">
+                            <div class="input-with-plus">
+
+              <input class="agency-search" data-slot="5" placeholder="AlJazeera_ar">
+                              <button class="news-plus-btn" data-slot="5">+</button>
+            </div>
+              <div class="agency-results"></div>
+            
+            </div>
+
+            <div class="settings-option-row">
+                            <div class="input-with-plus">
+
+              <input class="agency-search" data-slot="1" placeholder="Associated France Press">
+                              <button class="news-plus-btn" data-slot="1">+</button>
+                                 </div>
+              <div class="agency-results"></div>
+           
+            </div>
+
+            <div class="settings-option-row">
+                            <div class="input-with-plus">
+
+              <input class="agency-search" data-slot="6" placeholder="AlArabiya_ar">
+                              <button class="news-plus-btn" data-slot="6">+</button>
+                               </div>
+                              <div class="agency-results"></div>
+           
+            </div>
+    
+
+            <div class="settings-option-row">
+                            <div class="input-with-plus">
+
+              <input class="agency-search" data-slot="2" placeholder="Associated Press">
+                              <button class="news-plus-btn" data-slot="2">+</button>
+                              </div>
+              <div class="agency-results"></div>
+            
+            </div>
+
+            <div class="settings-option-row">
+                            <div class="input-with-plus">
+
+              <input class="agency-search" data-slot="7" placeholder="France24_ar">
+                              <button class="news-plus-btn" data-slot="7">+</button>
+                 </div>              
+              <div class="agency-results"></div>
+           
+            </div>
+
+            <div class="settings-option-row">
+                            <div class="input-with-plus">
+
+              <input class="agency-search" data-slot="3" placeholder="Bloomberg">
+                              <button class="news-plus-btn" data-slot="3">+</button>
+              </div>
+              <div class="agency-results"></div>
+            
+            </div>
+        
+
+
+             <div class="settings-option-row">
+                            <div class="input-with-plus">
+
+              <input class="agency-search" data-slot="8" placeholder="RT_ar">
+                              <button class="news-plus-btn" data-slot="8">+</button>
+              </div>
+              <div class="agency-results"></div>
+            
+             </div>
+
+
+         
+              <div class="settings-option-row">     
+                        <div class="input-with-plus">
+
+              <input class="agency-search" data-slot="4" placeholder="CNN">
+                              <button class="news-plus-btn" data-slot="4">+</button>
+              </div>                    
+              <div class="agency-results"></div>
+            
+               </div>
+
+              <div class="settings-option-row">
+                            <div class="input-with-plus">
+
+              <input class="agency-search" data-slot="9" placeholder="AsharqAwsat">
+                              <button class="news-plus-btn" data-slot="9">+</button>
+              </div>                    
+              <div class="agency-results"></div>
+            
+              </div>
+        </div>
+      </div>
+
+      
+      </div>
+    </div>
+  
+  </div>
+</div>
+
+
+
+
+<!-- CITY PICKER MODAL -->
+
+<div id="cityPickerModal" class="modal">
+
+  <div class="modal-content city-picker">
+
+    <div class="feed-column-title">
+      <div class="settings-title">Select City</div>
+      <span class="close city-close">&times;</span>
+    </div>
+
+    
+
+      <details id="region-americas" class="region">
+        <summary class="region-title">Americas</summary>
+        <div class="city-grid">
+        <div class="region-cities city-grid"></div>
+      </div>
+      </details>
+
+      <details id="region-europe" class="region">
+        <summary class="region-title">Europe</summary>
+        <div class="city-grid">
+        <div class="region-cities city-grid"></div>
+      </div>
+      </details>
+
+      <details id="region-middleeast" class="region">
+        <summary class="region-title">Middle East</summary>
+        <div class="city-grid">
+        <div class="region-cities city-grid"></div>
+      </div>
+      </details>
+
+      <details id="region-africa" class="region">
+        <summary class="region-title">Africa</summary>
+        <div class="city-grid">
+        <div class="region-cities city-grid"></div>
+      </div>
+      </details>
+
+      <details id="region-asia" class="region">
+         <summary class="region-title">Asia</summary>
+         <div class="city-grid">
+        <div class="region-cities"></div>
+      </div>
+      </details>
+
+      <details id="region-oceania" class="region">
+        <summary class="region-title">Oceania</summary>
+        <div class="city-grid">
+        <div class="region-cities city-grid"></div>
+      </div>
+      </details>
+
+    
+
+  </div>
+
+</div>
+
+
+
+<!-- NEWS PICKER MODAL -->
+
+<div id="newsPickerModal" class="modal">
+
+  <div class="modal-content news-picker">
+
+    <div class="feed-column-title">
+      <div class="settings-title">Select News Source</div>
+      <span class="close news-close">&times;</span>
+    </div>
+
+
+    
+      <details id="topic-arabi" class="news">
+        <summary class="topic-title">Arabic</summary>
+        <div class="news-grid">
+        <div class="list-agencies news-grid"></div>
+      </div>
+      </details>
+
+     <details id="topic-wires" class="news">
+        <summary class="topic-title">Global Wire Services</summary>
+        <div class="news-grid">
+        <div class="list-agencies news-grid"></div>
+      </div>
+      </details>
+
+      <details id="topic-major" class="news">
+        <summary class="topic-title">Major International Outlets</summary>
+        <div class="news-grid">
+        <div class="list-agencies news-grid"></div>
+      </div>
+      </details>
+
+      <details id="topic-us" class="news">
+        <summary class="topic-title">US Newspapers</summary>
+        <div class="news-grid">
+        <div class="list-agencies news-grid"></div>
+      </div>
+      </details>
+
+      <details id="topic-finance" class="news">
+        <summary class="topic-title">Financial / Markets</summary>
+        <div class="news-grid">
+        <div class="list-agencies news-grid"></div>
+      </div>
+      </details>
+
+      <details id="topic-tech" class="news">
+        <summary class="topic-title">Technology</summary>
+        <div class="news-grid">
+        <div class="list-agencies news-grid"></div>
+      </div>
+      </details>
+
+      <details id="topic-middleeast" class="news">
+        <summary class="topic-title">Middle East</summary>
+        <div class="news-grid">
+        <div class="list-agencies news-grid"></div>
+      </div>
+      </details>
+
+      <details id="topic-europe" class="news">
+        <summary class="topic-title">Europe</summary>
+        <div class="news-grid">
+        <div class="list-agencies news-grid"></div>
+      </div>
+      </details>
+
+      <details id="topic-asia" class="news">
+        <summary class="topic-title">Asia</summary>
+        <div class="news-grid">
+        <div class="list-agencies news-grid"></div>
+      </div>
+      </details>
+
+      <details id="topic-russia" class="news">
+        <summary class="topic-title">Russia / Eastren Europe</summary>
+        <div class="news-grid">
+        <div class="list-agencies news-grid"></div>
+      </div>
+      </details>
+
+      <details id="topic-analysis" class="news">
+        <summary class="topic-title">Global Analysis</summary>
+        <div class="news-grid">
+        <div class="list-agencies news-grid"></div>
+      </div>
+      </details>
+
+      
+
+  </div>
+
+</div>
+
+
+
+<!-- CHANNELS PICKER MODAL -->
+
+
+<div id="channelPickerModal" class="modal">
+
+  <div class="modal-content channel-picker">
+
+    <div class="feed-column-title">
+      <div class="settings-title">Select Channels</div>
+      <span class="close channel-close">&times;</span>
+    </div>
+
+    <details id="topic-arabic" class="chan">
+    <summary class="chan-title">Arabic News</summary>
+        <div class="channel-grid">
+        <div class="chan-list channel-grid"></div>
+      </div>
+      </details>
+
+      <details id="topic-lebanese" class="chan">
+      <summary class="chan-title">Lebanese Channels</summary>
+        <div class="channel-grid">
+        <div class="chan-list channel-grid"></div>
+      </div>
+      </details>
+
+      <details id="topic-gulfarabregion" class="chan">
+    <summary class="chan-title">Gulf / Arab Regional</summary>
+        <div class="channel-grid">
+        <div class="chan-list channel-grid"></div>
+      </div>
+      </details>
+
+      <details id="topic-intnews" class="chan">
+    <summary class="chan-title">International News</summary>
+        <div class="channel-grid">
+        <div class="chan-list channel-grid"></div>
+      </div>
+      </details>
+
+
+      <details id="topic-businessfinance" class="chan">
+    <summary class="chan-title">Business / Finance</summary>
+        <div class="channel-grid">
+        <div class="chan-list channel-grid"></div>
+      </div>
+      </details>
+
+      <details id="topic-doclifestyle" class="chan">
+    <summary class="chan-title">Documentery / Lifestyle</summary>
+        <div class="channel-grid">
+        <div class="chan-list channel-grid"></div>
+      </div>
+      </details>
+
+      <details id="topic-sports" class="chan">
+    <summary class="chan-title">Sports</summary>
+        <div class="channel-grid">
+        <div class="chan-list channel-grid"></div>
+      </div>
+      </details>
+
+      <details id="topic-ent" class="chan">
+    <summary class="chan-title">Entertainment</summary>
+        <div class="channel-grid">
+        <div class="chan-list channel-grid"></div>
+      </div>
+      </details>
+
+
+    
+
+  </div>
+
+</div>
+
+</body>
+</html>
