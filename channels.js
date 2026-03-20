@@ -33,8 +33,8 @@ const channels = [
 
 {id: 17, name: "MTV Lebanon", group: "lebanese", type: "hls", src: "https://hms.pfs.gdn/v1/broadcast/mtv/playlist.m3u8", logo: "./networkslogos/lebanese/mtvlebanon.png" },
 
-//{id: 18, name: "Al Jadeed", group: "lebanese", type: "youtube", channelId: "UC4JCsTLFcHGk10qpiNMh0Ww", logo: "./networkslogos/lebanese/aljadeed.png" },
-{id: 18, name: "Al Jadeed", group: "lebanese", type: "hls", src: "http://185.9.2.18/chid_391/mono.m3u8", logo: "./networkslogos/lebanese/aljadeed.png" },
+{id: 18, name: "Al Jadeed", group: "lebanese", type: "youtube", channelId: "UC4JCsTLFcHGk10qpiNMh0Ww", logo: "./networkslogos/lebanese/aljadeed.png" },
+//{id: 18, name: "Al Jadeed", group: "lebanese", type: "hls", src: "http://185.9.2.18/chid_391/mono.m3u8", logo: "./networkslogos/lebanese/aljadeed.png" },
 
 //{id: 19, name: "OTV Lebanon", group: "lebanese", type: "blob", src: "blob:https://otv.com.lb/a7bfdad0-890e-4151-8326-d8ee547740a1", logo: "./networkslogos/lebanese/otv.svg" },
 {id: 19, name: "OTV Lebanon", group: "lebanese", type: "hls", src: "https://otv.hibridcdn.net/otv/tv_abr/playlist.m3u8", logo: "./networkslogos/lebanese/otv.svg" },
