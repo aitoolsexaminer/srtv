@@ -21,7 +21,8 @@ const channels = [
 //{id: 12, name: "CGTN Arabic", group: "arabic", type: "youtube", src: "sJz8rWZKf7g" },
 //{id: 13, name: "Al Hurra", group: "arabic", type: "youtube", src: "i2n0qKX0v9k" },
 {id: 14, name: "Al Mayadeen", group: "arabic", type: "hls", src: "https://mdnlv.cdn.octivid.com/almdn/smil:mpegts.stream.smil/playlist.m3u8", logo: "./networkslogos/arabic/almayadeen.png" },
-{id: 15, name: "BBC Arabic", group: "arabic", type: "youtube", channelId: "UCelk6aHijZq-GJBBB9YpReA", logo: "./networkslogos/arabic/bbc-arabic.png" },
+///{id: 15, name: "BBC Arabic", group: "arabic", type: "youtube", channelId: "UCelk6aHijZq-GJBBB9YpReA", logo: "./networkslogos/arabic/bbc-arabic.png" },
+{id: 15, name: "BBC Arabic", group: "arabic", type: "hls", src: "https://ythls.armelin.one/channel/UCelk6aHijZq-GJBBB9YpReA.m3u8", logo: "./networkslogos/arabic/bbc-arabic.png" },
 
 {id:133, name:"i24NEWS Arabic", group:"arabic", type:"blob", src:"blob:https://video.i24news.tv/a846e4e4-bb86-4032-a135-35ae7735eef3", logo: "./networkslogos/arabic/i24.png" },
 //{id:133, name:"i24NEWS Arabic", group:"arabic", type:"hls", src:"https://bcovlive-a.akamaihd.net/95116e8d79524d87bf3ac20ba04241e3/eu-central-1/5377161796001/playlist.m3u8", logo: "./networkslogos/arabic/i24.png" },
