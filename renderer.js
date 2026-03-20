@@ -51,7 +51,6 @@ function activateTile(number) {
     if (legend) legend.style.display = "none";
 
     // ====================== YOUTUBE IFRAME ======================
-    // ====================== YOUTUBE IFRAME ======================
 if (player.tagName === "IFRAME" && player.src.includes("youtube.com")) {
     const src = player.getAttribute("src");
     if (!src) return;

@@ -12,7 +12,7 @@ const defaultChannelIds = [
   2,3,4,5,6,7,
   16,17,18,19,
   134,21,22,132,
-  8,11,10,14,15,133
+  8,11,10,14,134,133
 ];
 
 // ==========================
@@ -65,21 +65,11 @@ function createPlayer(channel) {
   // Blob / MP4 / WebM
   // ======================
    else if (channel.type === "blob") {
-    player = document.createElement("video");
-    setupVideo(player);
-
-    fetch(channel.src)
-      .then(r => r.blob())
-      .then(blob => {
-          // Revoke old URL if exists
-          if (player._blobUrl) URL.revokeObjectURL(player._blobUrl);
-          const url = URL.createObjectURL(blob);
-          player.src = url;
-          player._blobUrl = url; // store for future revocation
-          player.play().catch(() => {});
-      })
-      .catch(() => showFallback(player, channel));
-  }
+    player = document.createElement("iframe");
+    player.src = channel.src;   // now should be page URL, not blob:
+    player.allow = "autoplay; encrypted-media; fullscreen; picture-in-picture";
+    player.style.border = "0";
+}
 
   // ======================
   // Generic iframe (for external dashboards/maps)
