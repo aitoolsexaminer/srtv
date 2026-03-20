@@ -42,13 +42,13 @@ const channels = [
 
 
 //{id: 19, name: "OTV Lebanon", group: "lebanese", type: "blob", src: "blob:https://otv.com.lb/a7bfdad0-890e-4151-8326-d8ee547740a1", logo: "./networkslogos/lebanese/otv.svg" },
-{id: 19, name: "OTV Lebanon", group: "lebanese", type: "hls", src: "https://otv.hibridcdn.net/otv/tv_abr/playlist.m3u8?=&=&=&=&=698&=731&=&=&=&=2939d66c-aa6f-bb00-8d96-74255c43be39&=idfa", logo: "./networkslogos/lebanese/otv.svg" },
-//{id: 19, name: "OTV Lebanon", group: "lebanese", type: "hls", src: "https://svs.itworkscdn.net/otvlebanonlive/otv.smil/playlist.m3u8", logo: "./networkslogos/lebanese/otv.svg" },
+//{id: 19, name: "OTV Lebanon", group: "lebanese", type: "hls", src: "https://otv.hibridcdn.net/otv/tv_abr/playlist.m3u8?=&=&=&=&=698&=731&=&=&=&=2939d66c-aa6f-bb00-8d96-74255c43be39&=idfa", logo: "./networkslogos/lebanese/otv.svg" },
+{id: 19, name: "OTV Lebanon", group: "lebanese", type: "hls", src: "https://svs.itworkscdn.net/otvlebanonlive/otv.smil/playlist.m3u8", logo: "./networkslogos/lebanese/otv.svg" },
 
 
 //{id: 20, name: "Tele Liban", group: "lebanese", type: "hls", src: "https://cdn.catiacast.video/abr/ed8f807e2548db4507d2a6f4ba0c4a06/playlist.m3u8", logo: "./networkslogos/lebanese/teleliban.png" },
-{id: 20, name: "Tele Liban", group: "lebanese", type: "blob", src: "blob:https://www.teleliban.com.lb/b7329943-1453-4805-84f0-f9cb9226bda5", logo: "./networkslogos/lebanese/teleliban.png" },
-//{id: 20, name: "Tele Liban", group: "lebanese", type: "hls", src: "https://list.iptvcat.com/my_list/s/4bed574fb45b16ba26ecd382e570dccf.m3u8", logo: "./networkslogos/lebanese/teleliban.png" },
+//{id: 20, name: "Tele Liban", group: "lebanese", type: "blob", src: "blob:https://www.teleliban.com.lb/b7329943-1453-4805-84f0-f9cb9226bda5", logo: "./networkslogos/lebanese/teleliban.png" },
+{id: 20, name: "Tele Liban", group: "lebanese", type: "hls", src: "https://list.iptvcat.com/my_list/s/4bed574fb45b16ba26ecd382e570dccf.m3u8", logo: "./networkslogos/lebanese/teleliban.png" },
 
 //{id: 21, name: "NBN Lebanon", group: "lebanese", type: "blob", src: "blob:https://player.livepush.io/774d3a9a-ace0-4f6f-b142-986953295d70", logo: "./networkslogos/lebanese/nbn.png" },
 //{id: 21, name: "NBN Lebanon", group: "lebanese", type: "hls", src: "https://list.iptvcat.com/my_list/s/bdcbdfb825018c3266483f791442398c.m3u8", logo: "./networkslogos/lebanese/nbn.png" },
