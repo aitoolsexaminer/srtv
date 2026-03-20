@@ -28,7 +28,7 @@ const channels = [
 
 
 /* -------- LEBANESE -------- */
-//{id: 16, name: "LBCI Lebanon", group: "lebanese", type: "youtube", src: "hG9Z6Qp7wG4", logo: "./networkslogos/lebanese/lbci.png" },
+{id: 16, name: "LBCI Lebanon", group: "lebanese", type: "youtube", src: "hG9Z6Qp7wG4", logo: "./networkslogos/lebanese/lbci.png" },
 {id: 17, name: "MTV Lebanon", group: "lebanese", type: "hls", src: "https://hms.pfs.gdn/v1/broadcast/mtv/playlist.m3u8", logo: "./networkslogos/lebanese/mtvlebanon.png" },
 {id: 18, name: "Al Jadeed", group: "lebanese", type: "youtube", channelId: "UC4JCsTLFcHGk10qpiNMh0Ww", logo: "./networkslogos/lebanese/aljadeed.png" },
 {id: 19, name: "OTV Lebanon", group: "lebanese", type: "blob", src: "blob:https://otv.com.lb/a7bfdad0-890e-4151-8326-d8ee547740a1", logo: "./networkslogos/lebanese/otv.svg" },
