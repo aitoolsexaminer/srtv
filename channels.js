@@ -1,47 +1,72 @@
 const channels = [
 /* -------- ARABIC -------- */
 //{id: 1, name: "Al Jazeera English", group: "arabic", type: "hls", src: "https://live‑hls‑apps‑aje‑fa.getaj.net/AJE/index.m3u8" }, // updated HLS
+
 {id: 2, name: "Al Jazeera Arabic", group: "arabic", type: "hls", src: "https://live-hls-apps-aja-fa.getaj.net/AJA/index.m3u8", logo: "./networkslogos/arabic/aljazeera-arabic.svg" },
-{id: 3, name: "Al Jazeera Mubasher", group: "arabic", type: "hls", src: "https://live-hls-apps-ajm-fa.getaj.net/AJM/index.m3u8", logo: "./networkslogos/arabic/aljazeera-mubashar.svg" },
-
-
 //{id: 2, name: "Al Jazeera Arabic", group: "arabic", type: "youtube", src: "bNyUyrR0PHo", logo: "./networkslogos/arabic/aljazeera-arabic.svg" },
+
+{id: 3, name: "Al Jazeera Mubasher", group: "arabic", type: "hls", src: "https://live-hls-apps-ajm-fa.getaj.net/AJM/index.m3u8", logo: "./networkslogos/arabic/aljazeera-mubashar.svg" },
 //{id: 3, name: "Al Jazeera Mubasher", group: "arabic", type: "youtube", src: "rvJOGTSQNj8", logo: "./networkslogos/arabic/aljazeera-mubashar.svg" },
-
-
 
 {id: 4, name: "Al Arabiya", group: "arabic", type: "hls", src: "https://live.alarabiya.net/alarabiapublish/alarabiya.smil/playlist.m3u8", logo: "./networkslogos/arabic/alarabiya.png" },
 {id: 5, name: "Al Hadath", group: "arabic", type: "hls", src: "https://live.alarabiya.net/alarabiapublish/alhadath.smil/playlist.m3u8", logo: "./networkslogos/arabic/alhadath.png" },
 {id: 6, name: "Sky News Arabia", group: "arabic", type: "hls", src: "https://live-stream.skynewsarabia.com/c-horizontal-channel/horizontal-stream/index.m3u8", logo: "./networkslogos/arabic/skynewsarabia.svg" },
 {id: 7, name: "Al Araby TV", group: "arabic", type: "hls", src: "https://live.kwikmotion.com/alaraby1live/alaraby_abr/playlist.m3u8", logo: "./networkslogos/arabic/alaraby.svg" },
-{id: 8, name: "Asharq News", group: "arabic", type: "hls", src: "https://live-news.asharq.com/asharq.m3u8" },
+{id: 8, name: "Asharq News", group: "arabic", type: "hls", src: "https://live-news.asharq.com/asharq.m3u8", logo: "./networkslogos/arabic/asharqnews.png" },
 //{id: 9, name: "France 24 Arabic", group: "arabic", type: "hls", src: "https://live.france24.com/hls/live/2037222/F24_AR_HI_HLS/master_900.m3u8", logo: "./networkslogos/arabic/france24-arabic.svg" },
 {id: 10, name: "RT Arabic", group: "arabic", type: "hls", src: "https://rt-arb.rttv.com/dvr/rtarab/playlist.m3u8", logo: "./networkslogos/arabic/rt-arabic.svg" },
 {id: 11, name: "TRT عربي", group: "arabic", type: "hls", src: "https://tv-trtarabi.medya.trt.com.tr/master.m3u8", logo: "./networkslogos/arabic/trt-arabic.svg" },
 //{id: 12, name: "CGTN Arabic", group: "arabic", type: "youtube", src: "sJz8rWZKf7g" },
 //{id: 13, name: "Al Hurra", group: "arabic", type: "youtube", src: "i2n0qKX0v9k" },
 {id: 14, name: "Al Mayadeen", group: "arabic", type: "hls", src: "https://mdnlv.cdn.octivid.com/almdn/smil:mpegts.stream.smil/playlist.m3u8", logo: "./networkslogos/arabic/almayadeen.png" },
-///{id: 15, name: "BBC Arabic", group: "arabic", type: "youtube", channelId: "UCelk6aHijZq-GJBBB9YpReA", logo: "./networkslogos/arabic/bbc-arabic.png" },
+
+//{id: 15, name: "BBC Arabic", group: "arabic", type: "youtube", channelId: "UCelk6aHijZq-GJBBB9YpReA", logo: "./networkslogos/arabic/bbc-arabic.png" },
 {id: 15, name: "BBC Arabic", group: "arabic", type: "hls", src: "https://ythls.armelin.one/channel/UCelk6aHijZq-GJBBB9YpReA.m3u8", logo: "./networkslogos/arabic/bbc-arabic.png" },
 
-{id:133, name:"i24NEWS Arabic", group:"arabic", type:"blob", src:"blob:https://video.i24news.tv/a846e4e4-bb86-4032-a135-35ae7735eef3", logo: "./networkslogos/arabic/i24.png" },
+
+//{id:133, name:"i24NEWS Arabic", group:"arabic", type:"blob", src:"blob:https://video.i24news.tv/a846e4e4-bb86-4032-a135-35ae7735eef3", logo: "./networkslogos/arabic/i24.png" },
 //{id:133, name:"i24NEWS Arabic", group:"arabic", type:"hls", src:"https://bcovlive-a.akamaihd.net/95116e8d79524d87bf3ac20ba04241e3/eu-central-1/5377161796001/playlist.m3u8", logo: "./networkslogos/arabic/i24.png" },
+
+{id:133, name:"i24NEWS Arabic", group:"arabic", type:"hls", src:"https://fastly.live.brightcove.com/6386792572112/eu-central-1/5377161796001/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJob3N0IjoiZXJmajYzLmVncmVzcy53YzQ3bTEiLCJhY2NvdW50X2lkIjoiNTM3NzE2MTc5NjAwMSIsImVobiI6ImZhc3RseS5saXZlLmJyaWdodGNvdmUuY29tIiwiaXNzIjoiYmxpdmUtcGxheWJhY2stc291cmNlLWFwaSIsInN1YiI6InBhdGhtYXB0b2tlbiIsImF1ZCI6WyI1Mzc3MTYxNzk2MDAxIl0sImp0aSI6IjYzODY3OTI1NzIxMTIifQ.vsA8IfCHFqoqo2BHxx4w0PqBgTESPMYgFGL771vzKoA/chunklist__1.m3u8", logo: "./networkslogos/arabic/i24.png" },
 
 
 /* -------- LEBANESE -------- */
 //{id: 16, name: "LBCI Lebanon", group: "lebanese", type: "youtube", channelId: "UCpE6gpKewomi17XDyPfpFjA", logo: "./networkslogos/lebanese/lbci.png" },
-{id: 16, name: "LBCI Lebanon", group: "lebanese", type: "hls", src: "https://ffs3.gulfsat.com/aldawlatv/index.m3u8", logo: "./networkslogos/lebanese/lbci.png" },
-	
-{id: 17, name: "MTV Lebanon", group: "lebanese", type: "hls", src: "https://hms.pfs.gdn/v1/broadcast/mtv/playlist.m3u8", logo: "./networkslogos/lebanese/mtvlebanon.png" },
-{id: 18, name: "Al Jadeed", group: "lebanese", type: "youtube", channelId: "UC4JCsTLFcHGk10qpiNMh0Ww", logo: "./networkslogos/lebanese/aljadeed.png" },
-{id: 19, name: "OTV Lebanon", group: "lebanese", type: "blob", src: "blob:https://otv.com.lb/a7bfdad0-890e-4151-8326-d8ee547740a1", logo: "./networkslogos/lebanese/otv.svg" },
-																	 
-//{id: 20, name: "Tele Liban", group: "lebanese", type: "hls", src: "https://cdn.catiacast.video/abr/ed8f807e2548db4507d2a6f4ba0c4a06/playlist.m3u8", logo: "./networkslogos/lebanese/teleliban.png" },
-{id: 20, name: "Tele Liban", group: "lebanese", type: "blob", src: "blob:https://www.teleliban.com.lb/b7329943-1453-4805-84f0-f9cb9226bda5", logo: "./networkslogos/lebanese/teleliban.png" },
+{id: 16, name: "LBCI Lebanon", group: "lebanese", type: "hls", channelId: "https://samaflix.com:12103/channel2/tracks-v1a1/mono.m3u8", logo: "./networkslogos/lebanese/lbci.png" },
 
-{id: 21, name: "NBN Lebanon", group: "lebanese", type: "blob", src: "blob:https://player.livepush.io/774d3a9a-ace0-4f6f-b142-986953295d70", logo: "./networkslogos/lebanese/nbn.png" },
+
+
+
+{id: 17, name: "MTV Lebanon", group: "lebanese", type: "hls", src: "https://hms.pfs.gdn/v1/broadcast/mtv/playlist.m3u8", logo: "./networkslogos/lebanese/mtvlebanon.png" },
+
+//{id: 18, name: "Al Jadeed", group: "lebanese", type: "youtube", channelId: "UC4JCsTLFcHGk10qpiNMh0Ww", logo: "./networkslogos/lebanese/aljadeed.png" },
+{id: 18, name: "Al Jadeed", group: "lebanese", type: "hls", src: "http://185.9.2.18/chid_391/mono.m3u8", logo: "./networkslogos/lebanese/aljadeed.png" },
+
+
+//{id: 19, name: "OTV Lebanon", group: "lebanese", type: "blob", src: "blob:https://otv.com.lb/a7bfdad0-890e-4151-8326-d8ee547740a1", logo: "./networkslogos/lebanese/otv.svg" },
+{id: 19, name: "OTV Lebanon", group: "lebanese", type: "hls", src: "https://otv.hibridcdn.net/otv/tv_abr/playlist.m3u8", logo: "./networkslogos/lebanese/otv.svg" },
+//{id: 19, name: "OTV Lebanon", group: "lebanese", type: "hls", src: "https://svs.itworkscdn.net/otvlebanonlive/otv.smil/playlist.m3u8", logo: "./networkslogos/lebanese/otv.svg" },
+
+
+//{id: 20, name: "Tele Liban", group: "lebanese", type: "hls", src: "https://cdn.catiacast.video/abr/ed8f807e2548db4507d2a6f4ba0c4a06/playlist.m3u8", logo: "./networkslogos/lebanese/teleliban.png" },
+//{id: 20, name: "Tele Liban", group: "lebanese", type: "blob", src: "blob:https://www.teleliban.com.lb/b7329943-1453-4805-84f0-f9cb9226bda5", logo: "./networkslogos/lebanese/teleliban.png" },
+{id: 20, name: "Tele Liban", group: "lebanese", type: "hls", src: "https://list.iptvcat.com/my_list/s/4bed574fb45b16ba26ecd382e570dccf.m3u8", logo: "./networkslogos/lebanese/teleliban.png" },
+
+
+//{id: 21, name: "NBN Lebanon", group: "lebanese", type: "blob", src: "blob:https://player.livepush.io/774d3a9a-ace0-4f6f-b142-986953295d70", logo: "./networkslogos/lebanese/nbn.png" },
+{id: 21, name: "NBN Lebanon", group: "lebanese", type: "hls", src: "https://list.iptvcat.com/my_list/s/bdcbdfb825018c3266483f791442398c.m3u8", logo: "./networkslogos/lebanese/nbn.png" },
+//{id: 21, name: "NBN Lebanon", group: "lebanese", type: "hls", src: "https://cloud.odysee.live/content/1d8edd84bd42e695555dbf20d83b45e203ed9ed0/master.m3u8", logo: "./networkslogos/lebanese/nbn.png" },
+//{id: 21, name: "NBN Lebanon", group: "lebanese", type: "hls", src: "http://5.9.119.146:8883/nbn/index.m3u8", logo: "./networkslogos/lebanese/nbn.png" },
+
+
+//http-referrer=https://odysee.com
+//https://cloud.odysee.live/content/1d8edd84bd42e695555dbf20d83b45e203ed9ed0/master.m3u8
+
 {id: 22, name: "Al Manar", group: "lebanese", type: "hls", src: "https://edge.fastpublish.me/live/index.m3u8", logo: "./networkslogos/lebanese/almanar2.png" },
 {id: 132, name: "RED TV", group: "lebanese", type: "hls", src: "https://live.kwikmotion.com/redtvlive/redtv.smil/playlist.m3u8", logo: "./networkslogos/lebanese/redtv.png" },
+
+{id: 134, name: "UNews", group: "lebanese", type: "hls", src: "https://cdn.catiacast.video/abr/9436b5ab3c1171ab04a59af11951292f/playlist.m3u8", logo: "./networkslogos/lebanese/redtv.png" },
+
 //{id: 23, name: "Al Thania TV", group: "lebanese", type: "youtube", src: "@althaniatv/live" },
 
 /* -------- GULF / REGIONAL -------- */
